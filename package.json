@@ -1,0 +1,81 @@
+{
+    "name": "deeptrack",
+    "version": "1.0.0",
+    "description": "",
+    "main": "public/electron.js",
+    "scripts": {
+        "start": "concurrently \"craco start\" \"yarn electron\"",
+        "start-dev": "node serve-electron.js",
+        "start-prod": "npm run electron",
+        "electron": "set ELECTRON_START_URL=http://localhost:3000 && electron . --allow-file-access-from-files",
+        "start-server": "cd python && py -m pipenv run py server.py",
+        "test-python": "cd python && python -m unittest",
+        "compile-proto": "py -m pipenv run py -m grpc_tools.protoc --proto_path ./proto/ --python_out=./python --grpc_python_out=./python proto/grpc_routing.proto && yarn compile-proto:ts ",
+        "compile-proto:ts": "proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=src/resources proto/grpc_routing.proto"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@craco/craco": "^6.0.0",
+        "@material-ui/core": "^4.11.2",
+        "@material-ui/icons": "^4.11.2",
+        "@tailwindcss/postcss7-compat": "^2.0.2",
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.1.0",
+        "@testing-library/user-event": "^12.1.10",
+        "@types/jest": "^26.0.15",
+        "@types/node": "^12.0.0",
+        "@types/react": "^16.9.53",
+        "@types/react-dom": "^16.9.8",
+        "@types/react-redux": "^7.1.15",
+        "@types/redux-logger": "^3.0.8",
+        "@typescript-eslint/eslint-plugin": "^4.12.0",
+        "@typescript-eslint/parser": "^4.12.0",
+        "autoprefixer": "^9.8.6",
+        "electron": "^11.1.1",
+        "eslint": "^7.17.0",
+        "eslint-plugin-react": "^7.22.0",
+        "node-sass": "^4.14.1",
+        "postcss": "^7.0.35",
+        "prettier": "^2.2.1",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-redux": "^7.2.2",
+        "react-scripts": "4.0.1",
+        "redux": "^4.0.5",
+        "redux-logger": "^3.0.6",
+        "tailwind": "^4.0.0",
+        "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
+        "typescript": "^4.1.3",
+        "web-vitals": "^0.2.4"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "dependencies": {
+        "@grpc/grpc-js": "^1.3.2",
+        "@grpc/proto-loader": "^0.6.2",
+        "@treverix/remote": "^0.1.1",
+        "concurrently": "^6.2.0",
+        "electron-utils": "^1.0.9",
+        "node-gyp": "^7.1.2",
+        "zeromq": "^6.0.0-beta.6",
+        "zerorpc": "hokiedsp/zerorpc-node#master"
+    }
+}

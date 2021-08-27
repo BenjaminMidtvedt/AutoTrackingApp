@@ -1,0 +1,10 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "javascript.validate.enable": false,
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "typescript"
+    },
+    "python.pythonPath": "C:\\Users\\GU\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
+}

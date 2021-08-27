@@ -1,0 +1,24 @@
+{
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "parserOptions": {
+        "projects": "./tsconfig.json",
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "no-unused-vars": "off"
+    }
+}

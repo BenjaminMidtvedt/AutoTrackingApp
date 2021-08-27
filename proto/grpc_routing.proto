@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+service Routing {
+    rpc ExampleFunction (int32) returns (float);
+}
